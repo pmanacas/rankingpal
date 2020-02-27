@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block section %}admin{% endblock %}
+
+{% block script %}
+	<script type="text/javascript">
+		
+        jQuery(document).ready(function() {
+				jQuery("#RankingTable").tablesorter();
+                
+
+                
+                jQuery("#unlock").click(function()				
+                {
+                    var checked_status = this.checked;
+                    jQuery(".confirm").each(function()
+                    {
+                        if (checked_status == true) {
+                            jQuery(this).attr('disabled', '');
+                        }
+                        else {jQuery(this).attr('disabled', 'disabled');
+                        }
+                    });
+                });
+            
+		});
+        
+        
+    </script>
+{% endblock %}
+
+{% block contents %}
+
+<div id="leaderboard">
+    <form id="admin" action="" method="POST">
+    <div>
+
+        <input type="submit" name="submit" id="deletegame" value="Regenerate Rankings">
+        <input type="submit" name="submit" id="deletegame" value="Reset Player Scores">
+        <input type="submit" name="submit" id="deletegame" value="Delete selected Games">
+        <br><br>
+        <label>Enable dangerous buttons</label> <input type="checkbox" name="unlock" value="unlock" id="unlock"/>
+        <br>
+        <input disabled="disabled" class="confirm" type="submit" name="submit" id="deletegame" value="Delete ALL Games">
+        <input disabled="disabled" class="confirm" type="submit" name="submit" id="deletegame" value="Delete ALL Players">
+        
+    <br><br>
+    </div>
+    <table id="RankingTable" class="tablesorter"> 
+        <thead> 
+            <tr> 
+                <th class="header"></th>
+                <th class="header headerSortUp">Data</th>
+                <th class="header no-right-border">1º Class.</th>
+                <th class="header">Pts</th>
+                <th class="header no-right-border">2º Class.</th>
+                <th class="header">Pts</th>
+                <th class="header no-right-border">3º Class.</th>
+                <th class="header">Pts</th>
+                <th class="header no-right-border">4º Class.</th>
+                <th class="header">Pts</th>
+            </tr> 
+        </thead> 
+        <tbody>
+        {% for g in games %}
+            <tr> 
+                <td class="align-center">
+                    <input type="checkbox" name="gamecheck" value="{{g.key}}" class="gamecheck" />
+                </td>
+                <td>{{g.dateplayed|date:"d M Y H:i"}}</td>
+                <td class="no-right-border">{{g.player_names.0|escape}}</td> 
+                <td class="align-center">{{g.scores.0|escape}}</td> 
+                <td class="no-right-border">{{g.player_names.1|escape}}</td> 
+                <td class="align-center">{{g.scores.1|escape}}</td>
+                <td class="no-right-border">{{g.player_names.2|escape}}</td>
+                <td class="align-center">{{g.scores.2|escape}}</td>
+                <td class="no-right-border">{{g.player_names.3|escape}}</td>
+                <td class="align-center">{{g.scores.3|escape}}</td>
+            </tr>
+        {% endfor %}
+        </tbody> 
+    </table>
+    </form>
+</div>
+{% endblock %}

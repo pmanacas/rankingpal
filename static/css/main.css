@@ -1,0 +1,360 @@
+body {
+	text-align:left;
+	font-family: "Trebuchet MS",Arial,Helvetica,sans-serif;
+    background: none repeat scroll 0 0 #F1F1F1;
+    font: 80%/1.4em Arial,Helvetica,sans-serif;
+    }
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height:100%;
+}
+
+html { 
+overflow: -moz-scrollbars-vertical;
+overflow-y:scroll;
+}
+
+#page{
+min-height: 100%;
+background-color:#F1F1F1;
+}
+
+a:link, a:visited {
+    text-decoration:none;
+	color:#666666;
+}
+
+
+
+a:hover {
+    text-decoration:underline;
+	color:blue;
+}
+
+#nav a:hover {
+background-color: #EBEBEB;
+}
+
+#RankingTable a:hover {
+    text-decoration:none;
+	color:black;
+}
+
+#home a#nav-home,
+#game a#nav-game,
+#player a#nav-player,
+#games a#nav-games,
+#admin a#nav-admin,
+#faq a#nav-faq {
+background-color: #FE8D41;
+color: white;
+}
+
+
+ul#faq-list, #faq-list li{
+	list-style:square;
+}
+
+#faq-list li{
+	width: 500px;
+    margin-bottom:15px;
+}
+
+
+#leaderboard {
+    width:800px;
+}
+
+
+ul#nav {
+	list-style:none !important;
+	text-align:left !important;
+    margin: 0;
+    padding:0;
+    display: inline;
+    float:left;
+}
+
+ul#nav li {
+	list-style:none !important;
+	text-align:left !important;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+ul#nav a{
+    display: inline-block;
+    padding: 10px 10px;
+    margin: 0;
+    text-decoration:none;
+
+}
+
+#loginmenu {
+    display:block;
+    float:right;
+    margin:0;
+    padding:10px 5px 10px 5px;
+
+}
+
+#loginmenu a {
+    text-decoration:none;
+}
+
+.ui-menu-item {
+	margin:0 !important;
+	padding:0 !important;
+}
+.notlink {
+	display:block;
+	padding: 0px 5px;
+
+}
+
+.feed {
+  margin-left: 2px;
+  padding: 0 0 0 19px;
+  background: url("../images/rss.png") no-repeat 0 50%;
+}
+
+.fade{
+	color:#999;
+}
+.align-center {
+    text-align: center;
+}
+
+#player_name {
+    width: 150px;
+    height:25px;
+    padding:0 5px;
+    line-height:
+    }
+
+#submit-jogador {
+    padding:0 5px;
+    height:25px;
+}
+
+.notif {
+    position:absolute;
+    top:-30px;
+	margin:0;
+	width:500px;
+	padding:3px;
+	background-color:#333333;
+	color:#FFFFFF !important;
+	font-weight:bold;
+}
+.pin{
+	float:none; 
+	clear:both; 
+	height: 0; 
+	_display: none;
+}
+
+.green {
+	background-color:green !important;
+	color:#FFF;
+}
+
+.red {
+	background-color:red !important;
+	color:#FFF;
+}
+
+.ss-q-title {
+	display:block;
+	text-align:left;
+	color:#555555;
+	margin:0.5em 0 0.1em 0;
+}
+.ss-form-entry {
+	float:left;
+	margin: 0.3em;
+}
+.ss-q-short {
+	padding:.1em .1em;
+	line-height:1.2em;
+	width:11em;
+}
+
+.ss-form-heading{
+    padding:0 0.3em;
+}
+
+.ss-form-title {
+	font-size:110%;
+}
+.ss-navigate {
+	padding:0.5em 0 0 11.8em;
+}
+.pontos input {
+	width: 5em;
+}
+
+#submit-btn {
+padding:0.4em 1em;
+}
+div.autocomplete {
+  margin:0px;
+  padding:0px;
+  background:#F3F8FE;
+  border:1px solid #333;
+  position:absolute;
+}
+div.autocomplete ul {
+  margin:0;
+  padding:0;
+  list-style-type:none;
+}
+div.autocomplete ul li.selected {
+  background-color:#FE8D41;
+  color:#ffffff;
+}
+div.autocomplete ul li {
+  margin:0;
+  padding:0.2em;
+  height:1.5em;
+  display:block;
+  list-style-type:none;
+  cursor:pointer;
+}
+
+/* tables */
+table.tablesorter {
+	font-family:arial;
+	background-color: #CDCDCD;
+	margin:10px 0pt 15px;
+	font-size: 8pt;
+	text-align: left;
+}
+
+table.tablesorter td,th {
+border: 1px solid #CCCCCC;
+white-space: nowrap;
+}
+
+.no-right-border {
+    border-right:hidden !important;
+    text-align:left !important;
+}
+
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	background-color: #e6EEEE;
+	font-size: 8pt;
+	padding: 4px 20px 4px 5px;
+}
+table.tablesorter thead tr .header {
+	background-image: url(../images/tablesorter-bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+    color:#666666;
+    font-weight:normal;
+}
+table.tablesorter tbody td {
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #FFF;
+	vertical-align: top;
+}
+table.tablesorter tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(../images/tablesorter-asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(../images/tablesorter-desc.gif);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+background-color: #FE8D41;
+color: white;
+font-weight:normal;
+}
+
+
+/* a bit of css stolen from jaiku sorry....*/
+div#container {
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    text-align: left;
+    width: 800px;
+}
+div#header-container {
+    color: #666666;
+    margin-bottom: 40px;
+    padding: 0;
+}
+div#header {
+    margin: 0 auto;
+    padding-bottom: 8px;
+    position: relative;
+    width: 800px;
+    z-index: 100;
+}
+div#header div#helper-nav {
+    float: right;
+    font-size: 0.96em;
+    margin: 0.6em;
+}
+}
+div#header p#login {
+    margin: 0;
+    text-align: left;
+}
+div#header a#logo:hover {
+    background: none repeat scroll 0 0 transparent;
+}
+
+ul#main-nav {
+    font-family: "Trebuchet MS",Arial,Helvetica,sans-serif;
+    font-size: 1.2em;
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+ul#main-nav li {
+    float: left;
+    margin: 0 10px 0 0;
+    padding: 0;
+    text-align: center;
+}
+ul#main-nav li a {
+    color: #666666;
+    display: block;
+    padding: 0.5em 0.75em;
+    text-decoration: none;
+}
+ul#main-nav li a:hover {
+    background-color: transparent;
+}
+ul#main-nav li:hover, ul#main-nav li.hover {
+    background: none repeat scroll 0 0 #EBEBEB;
+}
+ul#main-nav li.current a {
+    color: #FFFFFF;
+}
+div#header-container {
+    background: url("../images/bg-header.png") repeat-x scroll 0 100% transparent;
+}
+
+tr.trow {
+background-color: #FFFFFF;
+}
+
+tr.trow.hi td {
+background-color: #FEDD91;
+}
+
+tr.trow.superhi td {
+background-color: #FEDD91;
+}

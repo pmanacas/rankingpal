@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>King Jogos Recentes</title>
+        <link>http://rankingpal.appspot.com</link>
+        <atom:link href="http://rankingpal.appspot.com/games-rss.xml" rel="self" type="application/rss+xml"/>
+        <description>RSS 2.0 feed dos jogos de king mais recentes</description>
+        <pubDate>{{games.0.dateplayed|date:"D, d M Y H:i:s"}} GMT</pubDate>
+        <lastBuildDate>{{games.0.dateplayed|date:"D, d M Y H:i:s"}} GMT</lastBuildDate>
+        {% for g in games %}
+        <item>
+            <title>{{g.dateplayed|date:"D d M Y H:i"}}</title>
+            <link>http://rankingpal.appspot.com/games#{{g.key}}</link>
+            <description>
+                [ 1º ]
+                {{g.player_names.0|escape}}
+                ({{g.scores.0|escape}})
+                [ 2º ]
+                {{g.player_names.1|escape}}
+                ({{g.scores.1|escape}})
+                [ 3º ]
+                {{g.player_names.2|escape}}
+                ({{g.scores.2|escape}})
+                [ 4º ]
+                {{g.player_names.3|escape}}
+                ({{g.scores.3|escape}})
+            </description>
+            <pubDate>{{g.dateplayed|date:"D, d M Y H:i:s"}} GMT</pubDate>
+            <guid>http://rankingpal.appspot.com/games#{{g.key}}</guid>
+        </item>
+        {%endfor%}
+    </channel> 
+</rss>

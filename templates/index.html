@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block section %}home{% endblock %}
+
+{% block script %}
+	<script type="text/javascript">
+		jQuery(document).ready(function() 
+			{
+				jQuery("#RankingTable").tablesorter();
+			}); 
+    </script>
+{% endblock %}
+
+{% block contents %}
+
+<div id="leaderboard">
+    <table id="RankingTable" class="tablesorter"> 
+        <thead> 
+            <tr> 
+                <th class="header"><span title="Rank" class="notlink">#</span></th>
+                <th class="header"><span title="Variacao de Ranking em relacao ao jogo anterior" class="notlink">&Delta;</span></th>
+                <th class="header"><span title="Nome" class="notlink">Nome</span></th>
+                <th class="header"><span title="Numero de jogos disputados" class="notlink">Jogos</span></th> 
+                <th class="header"><span title="Skill do Jogador" class="notlink">Mu</span></th>
+                <th class="header"><span title="Incerteza na Skill do jogador (um valor maior representa mais incerteza)" class="notlink">Sigma</span></th> 
+                <th class="header"><span title="Variacao de TrueSkill&trade; em relacao ao jogo anterior" class="notlink">&Delta;</span></th>
+                <th class="header headerSortUp"><span title="Skill estimada do jogador (Mu-3*Sigma)" class="notlink">TrueSkill&trade;</span></th> 
+            </tr> 
+        </thead> 
+        <tbody>
+        {% for p in players %}
+            <tr class="trow{%if p.inlast %} superhi{%endif%}">
+                <td class="align-center"><span title="Ranking anterior: {{p.previous_rank}}" class="notlink">{{forloop.counter}}</span></td>
+                <td class="align-center"><span title="Ranking anterior: {{p.previous_rank}}" class="notlink">{% if p.rankdeltaispositive %}+{% endif %}{% ifequal p.rankdelta 0 %}-{% else %}{{p.rankdelta}}{% endifequal %}</span></td>
+                <td><span title="Ranking anterior: {{p.previous_rank}}" class="notlink">{{p.name|escape}}</span></td> 
+                <td class="align-center">{{p.games_played}}</td> 
+                <td class="align-center"><span title="Mu anterior: {{p.previous_mu|floatformat:3}} ({% if p.mudeltaispositive %}+{% endif %}{{p.mudelta|floatformat:3}})" class="notlink">{{p.mu|floatformat:3}}</span></td> 
+                <td class="align-center"><span title="Sigma anterior: {{p.previous_sigma|floatformat:3}} ({% if p.sigmadeltaispositive %}+{% endif %}{{p.sigmadelta|floatformat:3}})" class="notlink">{{p.sigma|floatformat:3}}</span></td> 
+                <td class="align-center"><span title="Variacao de TrueSkill&trade; em relacao ao jogo anterior" class="notlink">{% if p.skilldeltaispositive %}+{% endif %}{{p.skilldelta|floatformat:3}}</span></td>
+                <td class="align-center"><span title="TrueSkill&trade; anterior: {{p.previous_skill|floatformat:3}} ({% if p.skilldeltaispositive %}+{% endif %}{{p.skilldelta|floatformat:3}})" class="notlink">{{p.current_skill|floatformat:3}}</span></td>
+            </tr>
+        {% endfor %}
+        </tbody> 
+    </table>
+</div>
+{% endblock %}

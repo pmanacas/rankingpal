@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>{{ page_title|escape }}</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<!--<meta name = "viewport" content = "width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">-->
+    <link rel="shortcut icon" href="../static/images/favicon.ico" type="image/x-icon">
+	<link href="../static/css/reset-fonts-grids.css" type="text/css" rel="stylesheet">
+	<link href="../static/css/main.css" type="text/css" rel="stylesheet">
+</head>
+<body id="{% block section %}{% endblock %}" dir="ltr">
+<div id="page">	
+    
+	
+  
+<div id="header-container">
+  <div id="header">
+    <div id="helper-nav">
+      <p id="login"> {{ user|escape }} <a id="loginlink" href="{{ url }}">{{ url_linktext }}</a> </p>
+    </div>
+    <ul id="main-nav">
+      <ul id="nav">
+        <li><a href="/" id="nav-home" >Tabela</a></li>
+        <li><a href="/games" id="nav-games" >Jogos</a></li>
+        <li><a href="/gameform" id="nav-game" >Inserir jogo</a></li>
+        <li><a href="/faq" id="nav-faq" >Links</a></li>
+        {% if admin %}
+        <li><a href="/admin" id="nav-admin" >admin</a></li>
+        {% endif %}
+      </ul>
+    </ul>
+  </div>
+</div>
+
+<div id="container">
+    <noscript>O teu browser não supporta JavaScript. Não podes usar esta página sem JavaScript activo.</noscript>
+    {% if playeradded %}
+    <div class="green notif">OK - jogador adicionado:  {{ playeradded|escape }}</div>
+    {% endif %}
+
+    {% if error %}
+    <div class="red notif">Erro: {{ error|escape }}</div>
+    {% endif %}
+
+    {% block contents %}
+    PAGE CONTENT MISSING
+    {% endblock %}
+
+
+</div>
+    <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.1.0/prototype.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.3/effects.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.3/controls.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script src="../static/js/jquery.tablesorter.min.js"></script>
+	<script>jQuery.noConflict();</script>
+    <script type="text/javascript">
+		jQuery(document).ready(function() 
+			{
+				jQuery(".notif").delay(2000).fadeOut(400);
+                
+                jQuery("#RankingTable tr").bind('mouseenter mouseleave', function() 
+                {
+                    jQuery(this).toggleClass('hi');
+                });
+                
+			}); 
+    </script>
+    {% block script %}{% endblock %}
+
+<div class="pin">&nbsp;</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block section %}games{% endblock %}
+
+{% block script %}
+	<script type="text/javascript">
+		jQuery(document).ready(function() 
+			{
+				jQuery("#RankingTable").tablesorter({ 
+                    dateFormat: "uk"
+                });
+			}); 
+    </script>
+{% endblock %}
+
+{% block contents %}
+
+
+<div id="leaderboard">
+    <div><a href="http://rankingpal.appspot.com/games-rss.xml" class="feed">RSS Feed</a></div>
+    <table id="RankingTable" class="tablesorter"> 
+        <thead> 
+            <tr> 
+                <th class="header headerSortUp">Data</th>
+                <th class="header no-right-border">1º Class.</th>
+                <th class="header">Pts</th>
+                <th class="header no-right-border">2º Class.</th>
+                <th class="header">Pts</th>
+                <th class="header no-right-border">3º Class.</th>
+                <th class="header">Pts</th>
+                <th class="header no-right-border">4º Class.</th>
+                <th class="header">Pts</th>
+            </tr> 
+        </thead> 
+        <tbody>
+        {% for g in games %}
+            <tr class="trow"> 
+                <td><a name="{{g.key}}">{{g.dateplayed|date:"d/m/Y H:i"}}</a></td> 
+                <td class="no-right-border">{{g.player_names.0|escape}}</td> 
+                <td class="align-center">{{g.scores.0|escape}}</td> 
+                <td class="no-right-border">{{g.player_names.1|escape}}</td> 
+                <td class="align-center">{{g.scores.1|escape}}</td>
+                <td class="no-right-border">{{g.player_names.2|escape}}</td>
+                <td class="align-center">{{g.scores.2|escape}}</td>
+                <td class="no-right-border">{{g.player_names.3|escape}}</td>
+                <td class="align-center">{{g.scores.3|escape}}</td>
+            </tr>
+        {% endfor %}
+        </tbody> 
+    </table>
+</div>
+{% endblock %}
